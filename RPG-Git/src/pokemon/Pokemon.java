@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -23,10 +24,11 @@ public class Pokemon {
     private Map<String, Integer> ev;
     int level;
     int exp;
-    private ArrayList<Move> moves;
+    private List<Move> moves;
     final Type types[];
     final String experience_group;
     int hp;
+    boolean fainted;
     
     /**
      * Constructs a Pokemon object according to name, level, and starting moves.
@@ -84,6 +86,8 @@ public class Pokemon {
         initExp();
         
         hp = getStats().get("hp");
+        
+        fainted = false;
     }
     
     public Map<String, Byte> getIV() {
@@ -164,9 +168,63 @@ public class Pokemon {
      * Returns current level of Pokemon. Needed outside of Pokemon object to
      * calculate damage.
      * 
-     * @return 
+     * @return Pokemon's level
      */
     public int getLevel() {
         return level;
+    }
+    
+    /**
+     * Returns type(s) of Pokemon. Needed for damage multiplier calculation.
+     * 
+     * @return Pokemon's types
+     */
+    public Type[] getTypes() {
+        return types;
+    }
+    
+    /**
+     * Returns hp.
+     * 
+     * @return hp 
+     */
+    public int getHp() {
+        return hp;
+    }
+    
+    /**
+     * Returns Pokemon's current moveset.
+     * 
+     * @return 
+     */
+    public List<Move> getMoves() {
+        return moves;
+    }
+    
+    /**
+     * Reduces hp of Pokemon.
+     * 
+     * @param damage Damage dealt by attacking Pokemon 
+     */
+    public void takeDamage(int damage) {
+        hp -= damage;
+        if (hp <= 0) {
+            hp = 0;
+            fainted = true;
+        }
+    }
+    
+    public void gainExp(int exp) {
+        this.exp = exp;
+        checkLevelUp();
+    }
+    
+    private void checkLevelUp() {
+        if (exp >= getMinExp(level + 1)) {
+            level++;
+            checkLevelUp();
+            return;
+        }
+        return;
     }
 }

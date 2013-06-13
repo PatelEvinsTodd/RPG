@@ -1,7 +1,7 @@
 package pokemon;
 
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -12,6 +12,7 @@ public class Move {
     private final static String[] CATEGORIES = {"Status", "Physical", "Special"};
     private final static int ACCURACY_MAX = 100;
     private final static int ACCURACY_MIN = 1;
+    private final static float STAB = 1.5f;
     private int index;
     private String name;
     private Type type;
@@ -40,31 +41,66 @@ public class Move {
         }
     }
 
-    public void use(Pokemon attacker, Pokemon defender) throws Exception {
-        if (pp > 0) {
-            pp--;
-        } else {
-            throw new Exception("No PP left!");
+    public void use(Pokemon attacker, int accuracy, Pokemon defender, int evade) {
+        pp--;
+        
+        if (category == "Status") {
+            //Do status logic here
+            return;
         }
 
+        int attack;
+        int defense;
         if (category == "Physical") {
-            int level = attacker.getLevel();
-            int cr_denominator;
-            if (high_cr_ratio) {
-                cr_denominator = 512;
-            } else {
-                cr_denominator = 64;
-            }
-            float probability = attacker.getStats().get("speed") / cr_denominator;
-            int critical_hit;
-            if (new Random().nextFloat() <= probability) {
-                critical_hit = 2;
-            }
-            else {
-                critical_hit = 1;
-            }
-            int attack = attacker.getStats().get("attack");
-            int defense = defender.getStats().get("defense");
+            attack = attacker.getStats().get("attack");
+            defense = defender.getStats().get("defense");
         }
+        else {
+            attack = attacker.getStats().get("special");
+            defense = defender.getStats().get("special");
+        }
+        Random rand = new Random();
+        int level = attacker.getLevel();
+        int cr_denominator;
+        if (high_cr_ratio) {
+            cr_denominator = 64;
+        } else {
+            cr_denominator = 512;
+        }
+        float probability = (float) (attacker.getStats().get("speed")) / cr_denominator;
+        int critical_hit;
+        if (rand.nextFloat() <= probability) {
+            critical_hit = 2;
+        }
+        else {
+            critical_hit = 1;
+        }
+        float multiplier = getMultiplier(attacker.getTypes(), defender.getTypes());
+        int random = (rand.nextInt(256 - 217) + 217);
+        int damage_dealt = (int) (((((((float)(level) * 0.4f * (float)(critical_hit)) + 2f) * (float)(attack) * (float)(power) / 50f / (float)(defense)) + 2f) * multiplier * (float)(random)) / 255f);
+
+        float hit_or_miss = (float) (this.accuracy) * (float) (accuracy) / (float) (evade) / 100f;
+        if (rand.nextFloat() <= hit_or_miss) {
+            defender.takeDamage(damage_dealt);
+            return;
+        }
+        else {
+            return;
+        }
+    }
+    
+    private float getMultiplier(Type[] attacker_types, Type[] defense) {
+        float ret = 1f;
+        
+        if (attacker_types[0] == type || attacker_types[1] == type) {
+            ret *= 1.5f;
+        }
+        ret *= TypeTable.lookup(type, defense[0]);
+        ret *= TypeTable.lookup(type, defense[1]);
+        return ret;
+    }
+    
+    public String getName() {
+        return name;
     }
 }

@@ -15,7 +15,7 @@ public class Query {
     }
     
     public static Map<String, Short> getBaseStats(int index) {
-        HashMap<String, Short> builder = new HashMap<String, Short>(5);
+        Map<String, Short> builder = new HashMap<String, Short>(5);
         
         //Dummy code. These are Bulbasaur's base stats.
         builder.put("HP", (short)45);
