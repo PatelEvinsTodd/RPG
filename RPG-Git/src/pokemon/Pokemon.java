@@ -29,6 +29,7 @@ public class Pokemon {
     final String experience_group;
     int hp;
     boolean fainted;
+    Status status_ailment;
     
     /**
      * Constructs a Pokemon object according to name, level, and starting moves.
@@ -88,6 +89,8 @@ public class Pokemon {
         hp = getStats().get("hp");
         
         fainted = false;
+        
+        status_ailment = Status.NORMAL;
     }
     
     public Map<String, Byte> getIV() {
@@ -226,5 +229,13 @@ public class Pokemon {
             return;
         }
         return;
+    }
+    
+    public void setStatus(Status status_ailment) {
+        this.status_ailment = status_ailment;
+    }
+    
+    public Status getStatus() {
+        return status_ailment;
     }
 }

@@ -6,7 +6,7 @@ import java.util.Random;
  *
  * @author evinstk
  */
-public class Run implements BattleChoice {
+public abstract class Run implements BattleChoice {
     @Override
     public int getPriority() {
         return 6;

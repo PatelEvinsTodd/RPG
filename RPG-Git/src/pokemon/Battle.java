@@ -93,6 +93,10 @@ public class Battle {
         sides[index].escape_count++;
     }
     
+    public void setFighter(int side_index, int fighter_index) {
+        sides[side_index].fighter = sides[side_index].trainer.getPokemon().get(fighter_index);
+    }
+    
     public void endBattle() {
         sides[0] = null;
         sides[1] = null;
