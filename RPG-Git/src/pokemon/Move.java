@@ -7,7 +7,6 @@ import java.util.Arrays;
  * @author evinstk
  */
 public class Move {
-    private final static String[] CATEGORIES = {"Status", "Physical", "Special"};
     private final static int ACCURACY_MAX = 100;
     private final static int ACCURACY_MIN = 1;
     private final static float STAB = 1.5f;
@@ -35,9 +34,6 @@ public class Move {
 
         if ((accuracy > 100) || (accuracy < 1)) {
             throw new Error("Invalid move accuracy");
-        }
-        if (!Arrays.asList(CATEGORIES).contains(category)) {
-            throw new Error("Invalid move category");
         }
     }
     

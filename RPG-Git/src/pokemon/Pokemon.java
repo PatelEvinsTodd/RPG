@@ -238,4 +238,8 @@ public class Pokemon {
     public Status getStatus() {
         return status_ailment;
     }
+    
+    public boolean isFainted() {
+        return fainted;
+    }
 }

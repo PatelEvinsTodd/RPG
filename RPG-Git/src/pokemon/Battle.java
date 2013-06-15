@@ -1,6 +1,7 @@
 package pokemon;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,7 +25,7 @@ public class Battle {
         
         Side (Trainer trainer) {
             this.trainer = trainer;
-            fighter = trainer.getPokemon().get(0);
+            fighter = initFighter(this.trainer);
             evade = 100;
             accuracy = 100;
             choice = null;
@@ -54,7 +55,7 @@ public class Battle {
         }
     }
     
-    public void executeTurn() {
+    private void executeTurn() {
         if (sides[0].priority > sides[1].priority) {
             sides[0].choice.execute(this, 0, 1);
             sides[1].choice.execute(this, 1, 0);
@@ -91,6 +92,23 @@ public class Battle {
     
     public void addEscapeCount(int index) {
         sides[index].escape_count++;
+    }
+    
+    private Pokemon initFighter(Trainer trainer) {
+        Pokemon fighter = null;
+        List<Pokemon> pokemons = trainer.getPokemon();
+        int fighter_index = 0;
+        
+        while (fighter == null) {
+            if (!pokemons.get(fighter_index).isFainted()) {
+                fighter = pokemons.get(fighter_index);
+            }
+            else {
+                fighter_index++;
+            }
+        }
+        
+        return fighter;
     }
     
     public void setFighter(int side_index, int fighter_index) {

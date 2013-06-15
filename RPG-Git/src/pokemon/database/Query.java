@@ -3,6 +3,7 @@ package pokemon.database;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import pokemon.Category;
 import pokemon.Type;
 
 /**
@@ -38,7 +39,7 @@ public class Query {
     }
     
     public static Object[] getMoveData(int index) {
-        Object[] ret = {1, "Pound", Type.NORMAL, "Physical", 35, 40, 100, false};
+        Object[] ret = {1, "Pound", Type.NORMAL, Category.PHYSICAL, 35, 40, 100, false};
         return ret;
     }
 }
