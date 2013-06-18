@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>battle.h</itemPath>
+      <itemPath>category.h</itemPath>
+      <itemPath>expGroup.h</itemPath>
+      <itemPath>fight.h</itemPath>
+      <itemPath>move.h</itemPath>
+      <itemPath>pokemon.h</itemPath>
+      <itemPath>pokemonParty.h</itemPath>
+      <itemPath>query.h</itemPath>
+      <itemPath>status.h</itemPath>
+      <itemPath>trainer.h</itemPath>
+      <itemPath>type.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>battle.cpp</itemPath>
+      <itemPath>category.cpp</itemPath>
+      <itemPath>expGroup.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+      <itemPath>move.cpp</itemPath>
+      <itemPath>pokemon.cpp</itemPath>
+      <itemPath>pokemonParty.cpp</itemPath>
+      <itemPath>query.cpp</itemPath>
+      <itemPath>trainer.cpp</itemPath>
+      <itemPath>type.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <linkerTool>
+          <commandLine>-lGL -lGLU -lglut</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="battle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="battle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="category.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="category.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="expGroup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="expGroup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fight.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="move.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="move.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pokemon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pokemon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pokemonParty.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pokemonParty.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="query.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="query.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="trainer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="trainer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="type.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="type.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="battle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="battle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="category.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="category.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="expGroup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="expGroup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fight.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="move.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="move.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pokemon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pokemon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pokemonParty.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="pokemonParty.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="query.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="query.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="trainer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="trainer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="type.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="type.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
