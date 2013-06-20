@@ -37,10 +37,10 @@ vector<Move *> query::getDefaultMoves(unsigned char index) {
     return ret;
 }
 
-char *query::getTypes(unsigned char index) {
-    char *ret = new char[2];
-    ret[0] = Type::getGrass();
-    ret[1] = Type::getNoType();
+Type *query::getTypes(unsigned char index) {
+    Type *ret = new Type[2];
+    ret[0] = GRASS;
+    ret[1] = NO_TYPE;
     return ret;
 }
 
@@ -49,12 +49,12 @@ string *query::getMoveName(unsigned char move_index) {
     return ret;
 }
 
-char query::getType(unsigned char move_index) {
-    char ret = Type::getNormal();
+Type query::getType(unsigned char move_index) {
+    Type ret = NORMAL;
 }
 
-char query::getCategory(unsigned char move_index) {
-    return Category::getPhysical();
+Category query::getCategory(unsigned char move_index) {
+    return PHYSICAL;
 }
 
 unsigned char query::getMaxPp(unsigned char move_index) {

@@ -28,7 +28,7 @@ private:
     unsigned char level;
     unsigned int exp;
     vector<Move *> moves;
-    char *types;
+    Type *types;
     char experience_group;
     unsigned char hp;
     bool fainted;
@@ -52,13 +52,19 @@ public:
     unsigned char *getBaseStats();
     unsigned char *getIv();
     unsigned short *getEv();
+    unsigned char getLevel();
     unsigned char getHp();
     unsigned char getHpStat();
     unsigned char getAttackStat();
     unsigned char getDefenseStat();
     unsigned char getSpeedStat();
     unsigned char getSpecialStat();
+    Move *getMove(size_t);
+    Type *getTypes();
     bool isFainted();
+    
+    //Setters
+    void takeDamage(int);
 };
 
 #endif	/* POKEMON_H */

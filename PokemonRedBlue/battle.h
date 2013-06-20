@@ -15,9 +15,23 @@
 
 using namespace std;
 
+class Side;
+class Battle;
+
 class BattleChoice {
 public:
+    virtual void execute(Side *, Side *) = 0;
     virtual char getPriority() = 0;
+};
+
+class Fight : public BattleChoice {
+private:
+    Move *move;
+    char priority;
+public:
+    Fight(Move *);
+    void execute(Side *, Side *);
+    char getPriority();
 };
 
 class Fighter {
@@ -46,19 +60,20 @@ public:
     BattleChoice* getBattleChoice();
     Trainer *getTrainer();
     Fighter *getFighter();
+    void setBattleChoice(BattleChoice *);
 };
 
 class Battle {
 private:
     vector<Side *> sides;
     
-    void execute(Side *, Side *);
+    void execute();
     void executeTurn();
     void requestExecution();
 public:
     Battle(Trainer *, Trainer *);
     vector<Side *> getSides();
-    void setBattleChoice(BattleChoice *, Side *);
+    void setBattleChoice(BattleChoice *, size_t);
 };
 
 #endif	/* BATTLE_H */

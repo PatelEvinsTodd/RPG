@@ -115,6 +115,10 @@ unsigned short *Pokemon::getEv() {
     return this->ev;
 }
 
+unsigned char Pokemon::getLevel() {
+    return level;
+}
+
 unsigned char Pokemon::getHp() {
     return hp;
 }
@@ -158,6 +162,23 @@ unsigned char Pokemon::getSpecialStat() {
     return getStat(4);
 }
 
+Move *Pokemon::getMove(size_t index) {
+    return moves[index];
+}
+
+Type *Pokemon::getTypes() {
+    return types;
+}
+
 bool Pokemon::isFainted() {
     return fainted;
+}
+
+void Pokemon::takeDamage(int damage) {
+    int hp_left = (int)(hp) - damage;
+    if (hp_left <= 0) {
+        hp = 0;
+        return;
+    }
+    hp = hp_left;
 }

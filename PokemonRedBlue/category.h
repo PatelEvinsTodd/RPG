@@ -8,11 +8,10 @@
 #ifndef CATEGORY_H
 #define	CATEGORY_H
 
-class Category {
-public:
-    static char getStatus();
-    static char getPhysical();
-    static char getSpecial();
+enum Category {
+    STATUS,
+    PHYSICAL,
+    SPECIAL
 };
 
 #endif	/* CATEGORY_H */

@@ -16,8 +16,8 @@ using namespace std;
 Move::Move() {
     index = 0;
     name = new string("---");
-    type = -1;
-    category = -1;
+    type = NORMAL;
+    category = STATUS;
     max_pp = 0;
     pp = 0;
     power = 0;
@@ -32,9 +32,45 @@ Move::Move(unsigned char move_index) {
     max_pp = query::getMaxPp(move_index);
     pp = max_pp;
     power = query::getPower(move_index);
+    accuracy = query::getAccuracy(move_index);
     high_cr_ratio = query::getCrRatio(move_index);
 }
 
 Move::~Move() {
     delete name;
+}
+
+unsigned char Move::getIndex() const {
+    return index;
+}
+
+string *Move::getName() const {
+    return name;
+}
+
+Category Move::getCategory() const {
+    return category;
+}
+
+bool Move::getCrRatio() const {
+    return high_cr_ratio;
+}
+
+unsigned char Move::getPower() const {
+    return power;
+}
+
+Type Move::getType() const {
+    return type;
+}
+
+unsigned char Move::getAccuracy() const {
+    return accuracy;
+}
+
+void Move::decreasePp() {
+    if (pp == 0) {
+        return;
+    }
+    pp--;
 }

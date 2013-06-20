@@ -12,6 +12,7 @@
 #include "pokemon.h"
 #include "trainer.h"
 #include "pokemonParty.h"
+#include "type.h"
 
 using namespace std;
 
@@ -28,20 +29,18 @@ int main() {
     /*delete pokemon2;*/
     unsigned char speed = pokemon->getSpeedStat();
     
-    cout << *name << endl;
-    cout << (int)(base_stats[2]) << endl;
-    cout << (ev[2]) << endl;
-    cout << (int)(hp) << endl;
-    cout << (int)(speed) << endl;
-    
-    PokemonParty *party = new PokemonParty(new Pokemon(1, 3));
+    PokemonParty *party = new PokemonParty(pokemon);
     Trainer *tanner = new Trainer("Tanner", party);
     Pokemon *pokedude = party->getParty()[0];
-    cout << pokedude->getName() << endl;
     PokemonParty *p = tanner->getParty();
     
     Battle *battle = new Battle(tanner, tanner);
     Side * my_side = battle->getSides()[0];
-    cout << my_side->getFighter()->getPokemon()->getName() << endl;;
+    battle->setBattleChoice(new Fight(pokedude->getMove(0)), 0);
+    battle->setBattleChoice(new Fight(pokedude->getMove(0)), 1);
+    cout << "Before attack: " << (int)(hp) << endl;
+    cout << "After hitting himself twice: " << (int)(pokedude->getHp()) << endl;
+    
+    cout << TypeTable::getModifier(NORMAL, GHOST) << endl;
 }
 

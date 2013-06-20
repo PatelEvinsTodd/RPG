@@ -9,6 +9,7 @@
 #define	QUERY_H
 
 #include "move.h"
+#include "category.h"
 #include <string>
 #include <vector>
 
@@ -20,13 +21,13 @@ public:
     static string *getName(unsigned char);
     static unsigned char *getBaseStats(unsigned char);
     static vector<Move *> getDefaultMoves(unsigned char);
-    static char *getTypes(unsigned char);
+    static Type *getTypes(unsigned char);
     static char getExpGroup(unsigned char);
     
     //Move
     static string *getMoveName(unsigned char);
-    static char getType(unsigned char);
-    static char getCategory(unsigned char);
+    static Type getType(unsigned char);
+    static Category getCategory(unsigned char);
     static unsigned char getMaxPp(unsigned char);
     static unsigned char getPower(unsigned char);
     static unsigned char getAccuracy(unsigned char);

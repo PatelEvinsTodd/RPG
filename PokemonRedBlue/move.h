@@ -10,15 +10,16 @@
 
 #include <string>
 #include "type.h"
+#include "category.h"
 
 using namespace std;
 
 class Move {
 private:
-    int index;
+    unsigned char index;
     string *name;
-    char type;
-    char category;
+    Type type;
+    Category category;
     unsigned char pp;
     unsigned char max_pp;
     unsigned char power;
@@ -28,6 +29,16 @@ public:
     Move();
     Move(unsigned char);
     ~Move();
+    
+    unsigned char getIndex() const;
+    string *getName() const;
+    Category getCategory() const;
+    bool getCrRatio() const;
+    unsigned char getPower() const;
+    Type getType() const;
+    unsigned char getAccuracy() const;
+    
+    void decreasePp();
 };
 
 #endif	/* MOVE_H */

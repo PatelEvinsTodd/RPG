@@ -24,7 +24,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>battle.cpp</itemPath>
-      <itemPath>category.cpp</itemPath>
       <itemPath>expGroup.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>move.cpp</itemPath>
@@ -61,8 +60,6 @@
       <item path="battle.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="battle.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="category.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="category.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -123,8 +120,6 @@
       <item path="battle.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="battle.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="category.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="category.h" ex="false" tool="3" flavor2="0">
       </item>

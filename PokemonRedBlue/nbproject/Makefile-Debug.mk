@@ -36,7 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/battle.o \
-	${OBJECTDIR}/category.o \
 	${OBJECTDIR}/expGroup.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/move.o \
@@ -75,11 +74,6 @@ ${OBJECTDIR}/battle.o: battle.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/battle.o battle.cpp
-
-${OBJECTDIR}/category.o: category.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/category.o category.cpp
 
 ${OBJECTDIR}/expGroup.o: expGroup.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -8,24 +8,43 @@
 #ifndef TYPE_H
 #define	TYPE_H
 
-class Type {
+#include <map>
+
+using namespace std;
+
+enum Type {
+    NO_TYPE,
+    BUG,
+    DRAGON,
+    ELECTRIC,
+    FIGHTING,
+    FIRE,
+    FLYING,
+    GHOST,
+    GRASS,
+    GROUND,
+    ICE,
+    NORMAL,
+    POISON,
+    PSYCHIC,
+    ROCK,
+    WATER
+};
+
+class TypeTable {
+private:
+    static const float SUPER_EFFECTIVE = 2.f;
+    static const float RESISTANT = 0.5f;
+    static const float IMMUNE = -1.f;
+    
+    typedef std::map<Type, float> DefenseMap;
+    typedef std::map<Type, DefenseMap> TypeMap;
+    
+    static TypeMap initTypeMap();
+    static TypeMap table;
 public:
-    static char getNoType();
-    static char getBug();
-    static char getDragon();
-    static char getElectric();
-    static char getFighting();
-    static char getFire();
-    static char getFlying();
-    static char getGhost();
-    static char getGrass();
-    static char getGround();
-    static char getIce();
-    static char getNormal();
-    static char getPoison();
-    static char getPyschic();
-    static char getRock();
-    static char getWater();
+    TypeTable();
+    static float getModifier(Type, Type);
 };
 
 #endif	/* TYPE_H */

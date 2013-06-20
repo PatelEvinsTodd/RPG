@@ -8,9 +8,8 @@
 #ifndef STATUS_H
 #define	STATUS_H
 
-class Status {
-private:
-public:
+enum Status {
+
 };
 
 #endif	/* STATUS_H */
